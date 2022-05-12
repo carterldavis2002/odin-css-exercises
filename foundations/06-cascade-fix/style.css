@@ -3,7 +3,10 @@
   color: hsl(0, 100%, 50%);
 }
 
-.small-para {
+/* Changed from .small-para to chaining classes. Because the
+number of classes in this selector (2) is greater than the .para selector (1),
+these rules are applied instead for the class="para small-para" element */
+.para.small-para {
   font-size: 14px;
 }
 
@@ -11,7 +14,11 @@
   font-size: 22px;
 }
 
-.confirm {
+/* Changed from .confirm class selector to id selector 
+because id selectors have higher specificity compared to
+class selectors (in .button) so these rules are applied instead for the
+button with this id and class="button confirm" */
+#confirm-button {
   background: green;
   color: white;
   font-weight: bold;
@@ -23,7 +30,10 @@
   font-size: 20px;
 }
 
-.child {
+/* Changed from .child to chaining classes. Because the number of
+classes in this selector (2) is greater than the div.text selector (1),
+these rules are applied instead for the class="text child" element */
+.text.child {
   color: red;
   font-size: 14px;
 }
