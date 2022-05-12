@@ -1,14 +1,18 @@
+/* Grouping selector so both button-a and button-b classes
+share some rules */
 .button-a,
 .button-b {
     font-size: 28px;
     font-family: 'Helvetica', 'Times New Roman', 'sans-serif';
 }
 
+/* Unique rules associated with button-a class */
 .button-a {
     background-color: hsl(0, 0%, 0%);
     color: hwb(0 100% 0%);
 }
 
+/* Unique rules associated with button-b class */
 .button-b {
     background-color: #ffff00;
 }

@@ -1,8 +1,12 @@
+/* Chaining selector so that elements with both
+class avatar and proportioned have these unique rules */
 .avatar.proportioned {
     width: 300px;
     height: auto;
 }
 
+/* Chaining selector so that elements with both
+class avatar and distorted have these unique rules */
 .avatar.distorted {
     width: 200px;
     height: 400px;
