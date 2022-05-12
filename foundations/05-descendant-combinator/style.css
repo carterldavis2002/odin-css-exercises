@@ -1,0 +1,9 @@
+/* Descendant combinator so that elements with text class
+only have these rules applied if they are descendants of an
+element with the containter class i.e. nested in container class element */
+.container .text {
+    background-color: yellow;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
