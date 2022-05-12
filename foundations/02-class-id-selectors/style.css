@@ -1,0 +1,23 @@
+/* Class selector for p-class */
+.p-class {
+    font-family: 'Verdana', 'DejaVu Sans', 'sans-serif';
+    background-color: rgb(255, 167, 167);
+}
+
+/* Class selector for cool-class */
+.cool-class {
+    font-size: 24px;
+}
+
+/* ID selector div-id */
+#div-id {
+    color: rgb(0, 0, 255);
+    font-size: 36px;
+}
+
+/* ID selector div-id-another */
+#div-id-another {
+    background-color: rgb(144, 238, 144);
+    font-size: 24px;
+    font-weight: bold;
+}
