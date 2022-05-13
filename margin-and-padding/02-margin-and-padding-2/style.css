@@ -3,25 +3,54 @@ body {
   font-family: sans-serif;
 }
 
+/* Padding of card set to 8px for space on all sides
+from card edge to blue containers */
 .card {
   width: 400px;
   background: #fff;
   margin: 16px auto;
+  padding: 8px;
 }
 
+/* Font size of title set to 16px. Margin from title
+container to content container set to 8px. Margin
+from top of card to title container set to 0 (because
+padding from card allocates 8px of space on every side
+from blue containers already). */
 .title {
   background: #e3f4ff;
+  padding: 8px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
 }
 
+/* Margin from content text to button container 8px.
+Padding specifies 16px for top/bottom and 8px for
+left/right from edge of container to content */
 .content {
   background: #e3f4ff;
+  margin-bottom: 8px;
+  padding: 16px 8px;
 }
 
+/* Padding for edge of text/button container to content
+8px all sides. Aligns text center. */
 .button-container {
   background: #e3f4ff;
+  text-align: center;
+  padding: 8px;
 }
 
+/* Added display rule for block so button is on new line
+from text. Margin specifies no space between text above 
+and container below and auto for sides to center.
+Padding for edge of button to text of button 8px
+top/bottom and 24px for the sides. */
 button {
   background: white;
   border: 1px solid #eee;
+  display: block;
+  margin: 0 auto;
+  padding: 8px 24px; 
 }
