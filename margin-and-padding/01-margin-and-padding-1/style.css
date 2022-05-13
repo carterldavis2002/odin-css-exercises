@@ -1,28 +1,51 @@
+/* max-width prevents the width value from
+being larger than the max. If the content is larger
+than the max width, it will go to the next line.
+There is no effect if the content is smaller.
+
+This margin property defines a 0 margin for the top/bottom
+and auto for the left/right. Auto as a margin value is
+useful for horizontal centering specifically. */
 body {
   max-width: 600px;
   margin: 0 auto;
 }
 
+/* These properties define 32px padding for
+all sides (top,right,left,bottom) and 12px margins
+for all sides. */
 .one {
   background: pink;
   border: 3px solid blue;
   /* CHANGE ME */
-  padding: 0px;
-  margin: 0px;
+  padding: 32px;
+  margin: 12px;
 }
 
+/* This margin-bottom rule specifies 48px for
+the bottom margin. Declaring this as a margin rule
+instead with 48px would result in the space between
+div one and div two to be 48px (12px currently
+due to div one's margin rule) and not 60px (the
+sum of the specified margins) due to margin collapsing.
+With margin collapsing, the greatest magnitude margin
+is reflected as the space between elements. */
 .two {
   background: lightblue;
   border: 3px solid purple;
   /* CHANGE ME */
-  margin-bottom: 0px;
+  margin-bottom: 48px;
 }
 
+/* padding rule defines 32px padding for all sides.
+margin-left uses auto which allows the browser to decide
+the suitable margin, which aligns the div to the right in
+this exercise. */
 .three {
   background: peachpuff;
   border: 3px solid brown;
   width: 200px;
   /* CHANGE ME */
-  padding: 0px;
-  margin-left: 0px;
+  padding: 32px;
+  margin-left: auto;
 }
