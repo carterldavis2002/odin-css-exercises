@@ -16,7 +16,13 @@ from card edge to blue containers */
 container to content container set to 8px. Margin
 from top of card to title container set to 0 (because
 padding from card allocates 8px of space on every side
-from blue containers already). */
+from blue containers already).
+
+NOTE: THE REASON WHY YOU NEED MARGIN-TOP TO BE 0 IS BECAUSE BY
+DEFAULT, H1 ELEMENTS HAVE A TOP/BOTTOM MARGIN OF 10.72PX. THIS
+IS NOT A PROBLEM WITH THE OTHER ELEMENTS, WHICH ARE DIVS/BUTTONS.
+THIS IS WHY THE SPACE BETWEEN THE EDGE OF THE CARD AND THE TITLE
+IS GREATER THAN 8PX WHEN MARGIN-TOP IS EXCLUDED. */
 .title {
   background: #e3f4ff;
   padding: 8px;
