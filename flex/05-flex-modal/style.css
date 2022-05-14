@@ -1,3 +1,19 @@
+/* My implementation is almost visually identical to the offical solution apart from some minor
+pixel differences i.e. content in official solution is just a *little* more spaced out than what
+it is by mine. I added 3 divs to the html file: 1 to separate the icon from the rest of the elements,
+1 to group the header text from the close button, and 1 to group the continue and cancel buttons
+together. The official implementation, on the other hand, adds only 1 div, to separate the icon from
+the rest of the elements. However, it also moves a div. It removes where the header class div initially ends (after
+the text) and moves the end of it after the close button (which is equivalent to my button-row div).
+It seems my button-group div is unecessary once it is realized that the container that holds
+all elements apart from the icon does not need to be a flexbox. I set it up as a column flexbox
+but this was unecssary as all the elements are already placed in the html in such a way that
+they are stacked on top of each other and the buttons are next to each other. The reason I added
+the buttons div was to remove stretching with this unnecessary flexbox.
+
+NOTE: SOME OF THE CLASS NAMES ARE CONFUSING AND MAY NOT REPRESENT WHAT THEY SOUND LIKE THEY DO
+
+BLANK LINES REPRESENT ADDED RULES */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 html, body {
@@ -15,13 +31,73 @@ body {
   justify-content: center;
 }
 
+/* Flexbox container containing icon and the rest of the content
+as 2 separate items. Gapped so that the space between the two items
+is 16px. 16px padding between the edges and the item content. */
 .modal {
   background: white;
   width: 480px;
   border-radius: 10px;
   box-shadow: 2px 4px 16px rgba(0,0,0,.2);
+
+  display: flex;
+  padding: 16px;
+  gap: 16px;
 }
 
+/* Adds space from bottom of modal text to buttons. This
+change is one-for-one what is present in the solution for
+this selector. */
+.text {
+  margin-bottom: 16px;
+}
+
+/* Selector for the container that holds the header text and the close button. The commented
+lines are what would need to be added for my implementation to match to solution's output, 
+pixel-for-pixel. This container is a flex box and creates a space such that the header text
+is at the start and the close button is at the end. The rules currently here are in
+the solution's .header (equivalent class) while also having the rules in my .header
+class (and the ones mentioned that would need to be added). */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+/* This flexbox container houses the button-row elements,
+text element, and buttons as 3 separate items using
+the column direction to stack them on top of eachother.
+The equivalent solution class is container, however, in the
+solution, container has no css rules applied. It is only used
+as a separator between the icon and the rest of the content. As mentioned
+previously, this selector is uneccessary as the header-row elements
+are already stacked on top of eachother in a desireable way just
+based on how the html is set up. Getting rid of this selector
+results in no visual difference. */
+.header-row {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header text. All these rules are in the solution but are part of the modified
+header class that contains both the text and the button (i.e. my button-row class).
+All these rules can be moved to button-row and this selector can be removed to
+achieve the pixel-for-pixel accuracy of the solution. The reason margin-bottom
+needs to be moved no matter what and the other two could stay here for that accuracy
+is because there would be 8px to the bottom of the header text to the bottom of the container
+for the text and button. With align-items set to center, which would need to be true for the
+accuracy, the button would be to the center of the text + it's margin, meaning the button
+would appear slightly below where it is in the solution. The margin would need to be applied to
+the container itself for the text and button to line up vertically where they are in the solution. */
+.header {
+  /* ALL THESE CAN BE MOVED TO .button-row */
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Sets flex-shrink to 0 so that the icon is not squished down by the
+other item in the container that houses it. */
 .icon {
   color: royalblue;
   font-size: 26px;
@@ -33,6 +109,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  flex-shrink: 0;
 }
 
 .close-button {
