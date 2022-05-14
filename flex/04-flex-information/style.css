@@ -1,3 +1,19 @@
+/* My implementation is visually identical to the solution in every
+regard (even when squishing window). Both html files are modified to
+include a div for the container to flex and item divs around each picture
+and associated text as the container items being flexed. For the CSS
+file, there are only 2 differences. The first is the official solution
+puts text-align: center under the body type selector to align all
+text elements inside the body. I separate this by putting the text-align
+rule in .title for the title text and .plant-item for the item text.
+The other difference is that the official solution uses max-width: 200px
+to prevent the container items from growing past 200px. I set the
+flex-basis to 200px instead (using the flex rule shorthand). Both have
+the same effect as I set flex-grow to 0 and flex-shrink to 1, 
+meaning the item won't grow past 200px but will shrink, like
+how the solution is. 
+
+BLANK LINES REPRESENT ADDED RULES*/
 body {
   font-family: 'Courier New', Courier, monospace;
 }
@@ -7,9 +23,32 @@ img {
   height: 100px;
 }
 
+/* Class selector for title text. Sets margin between title
+and plant items to 32px and aligns the text to the horizontal center. */
 .title {
   font-size: 36px;
   font-weight: 900;
+
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Flex container for plant items. Creates 52px gap between each
+item and aligns the content to the center of the main axis (horizontal
+since flex-direction is row by default). */
+.plant-container {
+  display: flex;
+  justify-content: center;
+  gap: 52px;
+}
+
+/* Items inside flex container which contain an image and
+some text below. Aligns the text to the center and sets
+flex such that the items will shrink if they need to
+and will not grow past the basis of 200px (width). */
+.plant-item {
+  text-align: center;
+  flex: 0 1 200px;
 }
 
 /* do not edit this footer */
