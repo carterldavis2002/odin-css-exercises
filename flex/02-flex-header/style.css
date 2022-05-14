@@ -1,6 +1,23 @@
+/* Successfully built example header without looking at solution,
+although several online resources were utilized. All rules added were part of solution,
+only 1 missed but it didn't change final output, look at ul selector
+for potential explanation as to why. Pixel values were obviosuly wrong
+initally, but the rules are what's important. Solution pixel values are
+the ones commented out. Added rules are separated by blank line. */
+
+/* Header class acts as flexbox container for entire header.
+The items are spaced evenly between eachother horizontally (hence space-between),
+items are centered vertically, and padding is given so there is
+room between the top/bottom edge of the header and the logo (the tallest
+item in the container). */
 .header  {
   font-family: monospace;
   background: papayawhip;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;/*padding: 8px;*/
 }
 
 .logo {
@@ -11,9 +28,29 @@
   padding: 4px 32px;
 }
 
+/* ul selector acts as nested flexbox container inside header.
+ul needs to be the flexbox container and not the divs with the link
+classes as the ul would act as the items instead of the li elements,
+which results in the li elements looking squished on top of eachother. 
+Padding is set to 0 to get rid of default ul padding as there is already
+padding provided by the parent container from the edge to the li elements.
+Gap provides space between each li element. 
+
+NOTE: IN THE SOLUTION, MARGIN IS SET TO 0 TO GET RID OF DEFAULT TOP AND
+BOTTOM UL MARGINS (NO DEFAULT LEFT/RIGHT ASSOCIATED WITH ELEMENT). MY
+SOLUTION IS VISUALLY THE SAME AS THE PROVIDED SOLUTION BECAUSE THESE DEFAULT MARGINS
+ARE NOT BIGGER THAN THE AMOUNT THAT IS REQUIRED FOR THE UL BOX TO BE
+BIGGER THAN THE LOGO BOX. YOU CAN OBSERVE THE OVERALL CONTAINIER EXPANDING WITH A HIGH
+ENOUGH MARGIN BY ENTERING A MARGIN VALUE
+THAT IS 20 OR BIGGER SINCE THE HEIGHT OF THE LOGO BOX IS 64 AND THE UL BOX IS
+25 WITHOUT MARGINS. (20 * 2) + 25 > 64. */
 ul {
   /* this removes the dots on the list items*/
   list-style-type: none;
+
+  display: flex;
+  padding: 0;
+  gap: 20px;/*gap: 8px;*/
 }
 
 a {
