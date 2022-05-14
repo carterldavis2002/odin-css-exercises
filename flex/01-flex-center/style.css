@@ -3,6 +3,17 @@
   border: 4px solid midnightblue;
   width: 400px;
   height: 300px;
+
+  /* display: flex means we want to use flexbox with
+  the container. justify-content: center means
+  center the content along the main axis (horizontal
+  as default direction with flexbox is row).
+  align-items: center means center the flexbox
+  items along the cross axis (vertical as 
+  it is perpendicular to the main axis. */ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .box {
