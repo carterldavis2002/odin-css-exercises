@@ -1,21 +1,45 @@
+/* My implementation is visually identical to the official
+solution apart from the color of the links (so nothing important). 
+One difference between my css and the solution's is that the
+solution uses the ul type selector to house the flex display type
+while I refer to them by the classes right-links and left-links.
+The only other real difference is that I use justify-content
+space-between on the body type selector to apply equal space between
+the header, footer, and content so that the content appears
+in the vertical middle. The solution instead applies flex 1
+to grow the content as large as it can (against the header and footer),
+and centers it horizontally and vertically with align-items and
+justify-content.
+
+BLANK LINES REPRESENT ADDED RULES */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* Makes body element with all displayed html content a column flex container.
+Equal space is applied between the header, footer, and content. */
 body {
   height: 100vh;
   margin: 0;
   overflow: hidden;
   font-family: Roboto, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 img {
   width: 600px;
 }
 
+/* Added padding for space between button text and edged,
+identical to rules added in solution. */
 button {
   font-family: Roboto, sans-serif;
   border: none;
   border-radius: 8px;
   background: #eee;
+
+  padding: 8px 16px;
 }
 
 input {
@@ -24,4 +48,57 @@ input {
   padding: 8px 24px;
   width: 400px;
   margin-bottom: 16px;
+}
+
+/* Gets rid of bullet points for unordered list elements
+and gets rid of default padding/margins. Solution sets
+list-style to none which sets 3  properties, including
+list-style-type. I don't think it matters here due to how
+the list items in the exercise are set up. */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gets rid of underline under links and changes text
+color to gray (color changes color of all states, so for example,
+visited links no longer appear purple. */
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+/* Flex container to hold header/footer link lists. Is a
+nested flex container inside the overall column container for the body
+element. Adds space between edges and link list content. Adds
+space so that left-links appear at container start and right-links
+appear at container end. */
+.header, .footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+/* Changes background color of footer div. */
+.footer {
+  background-color: #eeeeee;
+}
+
+/* The rules present here are inside the ul type selector
+in the solution, these classes are just what is referenced by the
+ul's to represent the right and left lists. Makes each link side
+a row flex container with a 16px gap between the individual links. */
+.left-links, .right-links {
+  display: flex;
+  gap: 16px;
+}
+
+/* Content is defined as a column flex container that holds the
+logo, search bar, and buttons. The items are horizontally
+aligned. */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
