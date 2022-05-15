@@ -1,28 +1,136 @@
+/* My implementation is visually identitcal to the official solution except
+when the window is squished horizontally past the right edge of the cards. 
+When you use the horizontal scroll bar to scroll to the right, you can see
+there is a space between the cards and the edge of the window, but in mine
+this space is not present, the edge of the cards is pushed up against the 
+edge of the window. This is probably nothing major, as nothing in the README
+implies that my implementation is wrong. An explanation to what line needs
+to be changed to get the solution behavior is explained in the card class.
+
+In both mine and the solution, 2 divs were added in the same places,
+one to act as a container for all of the cards, and one to hold all
+the content (i.e. anything but the header/footer). 
+
+BLANK LINES REPRESENT ADDED RULES*/
+
+/* Added rules identical to solution. All displayed content
+is a part of this column flex container. */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
 }
 
+/* Identical to the solution, content is a row flex container that
+holds the side bar and card container that holds all the cards.
+Flex is set to 1 so that this container fills the center of the page even
+if it's content is smaller, to push the footer to the bottom (remember
+the content container is an item in a flow container for the entire page body. */
+.content {
+  display: flex;
+  flex: 1;
+}
+
+/* All rules identical except the padding value and
+there is no gap rule. Gap here creates space between
+all the cards. The solution does this by applying a margin
+to the card class. Padding is 48px here but says 32px
+in the README. 48px works to achieve the sample output, but
+32px padding is used in the solution with the card margins mentioned
+before (16px so 16px + 32px = 48px). */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 48px;
+  gap: 32px;
+}
+
+/* All rules identical except the padding. I only
+apply 16px padding on the left while solution does
+0 for top/bottom and 16px for right/left. Output is
+the same either way. */
 .header {
   height: 72px;
   background: darkmagenta;
   color: white;
+
+  font-size: 32px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
 }
 
+/* All rules identical, footer is a row flex container. The
+text is centered horizontally and vertically. */
 .footer {
   height: 72px;
   background: #eee;
   color: darkmagenta;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* All rules identical except in solution flex-shrink only used and set
+to 0 while I use the longhand flex to declare shrink 0 along with
+grow and auto as the basis. Padding is applied to add space
+between edge and sidebar links. Can't shrink in size. */
 .sidebar {
   width: 300px;
   background: royalblue;
+
+  padding: 16px;
+  flex: 0 0 auto;
 }
 
+/* Only padding rule identical here. In solution margin is
+added for reasons described in card-container and max-width and
+flex are not present. To achieve the exact output of the solution
+to match the behavior described at the beginning with the squished window,
+the max-width rule must be changed to a normal width rule and the flex rule needs
+to be removed. To start with the simple explanation, the flex rule needs to
+be removed to prevent the card from growing past it's initial width in the
+row container. With max-width, the flex rule is there to prevent shrinking
+the card smaller than it's initial width (i.e. the max). Not too sure why
+the card does not shrink with normal width rule even though it is present in flex
+by default 
+
+Now, when max-width is changed to width, the space is present between the edge
+of the window and cards when squished to where there is a horizontal scroll bar.
+The space seems to be 48px, which if you recall, is the padding applied to
+the card container (well, the card margin and the padding combined if we
+are talking about the official solution). I don't really know the significane
+of this. Either way the difference between implementations is small and probably not that important. */
 .card {
   border: 1px solid #eee;
   box-shadow: 2px 4px 16px rgba(0,0,0,.06);
   border-radius: 4px;
+  
+  max-width: 300px;
+  padding: 16px;
+  flex: 1 0 auto;
+}
+
+/* First three rules identical, other three not present at all. It isn't necessary
+to have a column flex container declared here, but I use gap to apply the spacing between the
+links while the solution does this by applying a margin to the bottom of each ot the links. */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* All rules identical. */
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
 }
